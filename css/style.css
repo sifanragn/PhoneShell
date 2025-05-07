@@ -1,0 +1,170 @@
+body {
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.hero-title {
+    color: #000000;
+    text-shadow: 0 0 5px #fffefe, 0 0 10px #ffffff, 0 0 20px #ffffff;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1; /* Di atas video */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Di atas overlay */
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none; /* Biar tidak intercept touch/klik */
+}
+
+/* Optional (agar di iOS/Android video tidak over-zoom saat resize) */
+@media (max-aspect-ratio: 16/9) {
+    .hero-video {
+        min-height: 100%;
+        min-width: auto;
+    }
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .hero-video {
+        min-width: 100%;
+        min-height: auto;
+    }
+}
+
+/* Navbar */
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+/* Feature Cards */
+.feature-card {
+    background: #111;
+    border: 1px solid #333;
+    transition: all 0.3s;
+}
+
+.feature-card:hover {
+    background: #222;
+    transform: translateY(-5px);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2); /* Gold glow saat hover */
+}
+
+/* Table */
+.table th, .table td {
+    border-color: #333 !important;
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid #333;
+}
+
+/* Primary Button (Gold) */
+.btn-primary {
+    background-color: #ffffff;
+    border: none;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ffffff; /* Slightly darker gold saat hover */
+    color: #000;
+}
+
+/* Preorder Form */
+.preorder-form {
+    max-width: 600px;
+    background-color: #111;
+    border: 1px solid #333;
+    box-shadow: 0 0 20px rgba(223, 187, 0, 0.2);
+}
+
+.preorder-form input,
+.preorder-form select,
+.preorder-form textarea {
+    background-color: #222;
+    border: 1px solid #444;
+    color: #fff;
+}
+
+.preorder-form input::placeholder,
+.preorder-form textarea::placeholder {
+    color: #888;
+}
+
+.preorder-form input:focus,
+.preorder-form select:focus,
+.preorder-form textarea:focus {
+    border-color: #ffffff;
+    box-shadow: 0 0 5px #ffffff;
+}
+
+/* Tooltip pada gambar warna */
+.color-card {
+    position: relative;
+  }
+  
+  .color-card img[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 2;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .color-card img {
+    transition: transform 0.3s ease;
+  }
+  
+  .color-card img:hover {
+    transform: scale(1.05); /* Zoom efek saat hover */
+  }
+  
